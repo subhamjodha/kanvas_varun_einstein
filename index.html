@@ -1,0 +1,225 @@
+<! DOCTYPE html>
+<html>
+  <head>
+    <title>TECHSPARDHA'15</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Varun kumar" >
+    <link rel="shortcut icon" href="media/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/lecture.css"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
+    <style type="text/css">
+      #gangnam{background-image: url('media/sprite.png');}
+      #cake{
+        margin-left:50%;
+        width:50%;
+        background-color:teal;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <ul>
+                  <li class="nav_left">TECHSPARDHA'15</li>
+                  <li class="nav_center"><span class="saffron">#made</span><span class="white">in</span><span class="green">India</span></li>
+                  <li class="nav_right">KANVAS</li>
+                </ul>
+            </div>
+         </div>
+      </nav>
+    <div id="celebration">
+      <div class="container">
+        <div class="balloon">
+          <div><span>☺</span></div>
+          <div><span>B</span></div>
+          <div><span>D</span></div>
+          <div><span>A</span></div>
+          <div><span>Y</span></div>
+          <div><span>!</span></div>
+        </div>
+        <div id="flying_albert">
+          <div id="make_me_fly">
+            <a href="#" title="Thanks for celebrating my birthday☺"><img src="media/albert.png" alt="Albert Einstein"/></a>
+        </div>
+      </div>
+      <div id="cake">
+        <canvas id="my_canvas" width="578" height="250"></canvas>
+        <script>
+          var canvas = document.getElementById('my_canvas');
+          var context = canvas.getContext('2d');
+
+
+
+          /* table base support(a solid line)*/
+          context.beginPath();
+          context.moveTo(198, 206);
+          context.lineTo(198, 300);
+          context.lineWidth = 7;
+          context.strokeStyle = 'darkgray';
+          context.stroke();
+
+          /* table base (ellipse)*/
+          context.beginPath();
+          context.moveTo(75, 150);
+          context.bezierCurveTo(75,225, 325, 225, 325, 150)
+          context.strokeStyle = 'black';
+          context.lineWidth = 2;
+          context.stroke();
+          context.fillStyle = 'darkgray';
+          context.fill();
+          context.beginPath();
+          context.moveTo(75, 150);
+          context.bezierCurveTo(75,75, 325, 75, 325, 150)
+          context.fillStyle = 'darkgray';
+          context.fill();
+          context.lineWidth = 1;
+          context.strokeStyle = 'black';
+          context.stroke();
+          context.lineWidth = .4;
+
+          /*    cake middle part (a rectangle)*/
+          context.beginPath();
+          context.rect(100, 90, 200, 64);
+          context.fillStyle = 'sienna';
+          context.fill();
+          context.stroke();
+
+          /*    cake upper part( ellipse half part)*/
+          context.beginPath();
+          context.moveTo(100, 90);
+          context.bezierCurveTo(100,50, 300, 50, 300, 90);
+          context.moveTo(100, 90);
+          context.bezierCurveTo(100, 130, 300, 130, 300, 90);
+          context.fillStyle = 'saddlebrown';
+          context.fill();
+          context.strokeStyle = 'black';
+          context.stroke();
+
+          /*    cake middle part i.e base( ellipse half part)*/
+          context.beginPath();
+          context.moveTo(100, 120);
+          context.bezierCurveTo(100,165, 300, 165, 300, 120);
+          context.lineWidth=2.5;
+          //context.fillStyle = 'brown';
+          //context.fill();
+          context.stroke();
+          context.font = '35pt Calibri';
+          context.fillStyle = 'black';
+          context.fillText('😄', 175, 165);
+          /*    cake lower part i.e base( ellipse half part)*/
+          context.beginPath();
+          context.moveTo(100, 150);
+          context.bezierCurveTo(100,200, 300, 200, 300, 150);
+          context.fillStyle = 'sienna';
+          context.fill();
+          context.lineWidth=.4;
+          context.stroke();
+
+          /* Drawing candle  */
+
+          //top of the candle
+          context.beginPath();
+          context.moveTo(196,50);
+          context.arc(196,50,3.9,1,Math.PI+0.1,false);
+          context.fillStyle='lightgrey';
+          context.fill();
+          // wax
+          context.beginPath()
+          context.moveTo(194,50);
+          context.rect(194,50,8,45);
+          context.fillStyle = 'lightgrey';
+          context.fill();
+          // the wick
+          context.beginPath();
+          context.moveTo(197,44);
+          context.fillStyle="black";
+          context.fill();
+          context.fillRect(197,44,2,6);
+          context.closePath();
+
+          var a=0;var b=0.1;
+          function drawing(){
+          a=a+b;
+          if(a>=3){
+            b=-0.1;
+          }
+          if(a<=-3){
+            b=0.1;
+          }
+          //yellow part of flame
+          context.beginPath();
+          context.moveTo(193,50);
+          context.quadraticCurveTo(196+a,10-a,203,50);
+          context.closePath();
+          //context.fillStyle="#E9DD00";
+          context.fillStyle="yellow";
+          context.fill();
+          //golden part of flame
+          context.beginPath();
+          context.moveTo(195,50);
+          context.quadraticCurveTo(197+a,18-a,201,50);
+          context.closePath();
+          //context.fillStyle="#FFFE00";
+          context.fillStyle="gold";
+          context.fill();
+
+          // blue part of flame
+          context.beginPath();
+          context.moveTo(195,50);
+          context.quadraticCurveTo(198+a,30+a,201,50);
+          context.fillStyle="rgba(0,0,255,0.8)";
+          context.fill();
+          // the wick
+          context.beginPath();
+          context.moveTo(197,44);
+          context.fillStyle="black";
+          context.fill();
+          context.fillRect(197,44,2,6);
+          context.closePath();
+
+          }
+          function make_wish(){
+            //Wish
+            context.font = '15pt Calibri';
+            context.fillStyle = 'white';
+            context.fillText('Happy Birthday', 320, 50);
+            context.fillText(' Albert Einstein😄!!', 320, 85);
+          }
+          $('#my_canvas').css('background-color', 'rgba(158, 167, 184, 0.2)');
+
+
+        </script>
+      </div>
+      <button onclick="start_celebrating()" id="party_celebrate_button" class="btn btn-small btn-danger">Celebrate!!</button>
+      <a href="index.html#party"><button type="button" id="party_start_button"class="btn btn-small btn-success" onclick="start_party()">Start Party</button></a>
+      <script>
+        $("#party_start_button").hide();
+      </script>
+      <audio id="audioTag1">
+         <source src="media/bday_wish.mp3" type="audio/mpeg">
+       Your browser does not support the audio element.
+      </audio>
+      <div id="party">
+        <div id="gangnam">
+        </div>
+        <audio id="audioTag2">
+           <source src="media/gangnam.mp3" type="audio/mpeg">
+         Your browser does not support the audio element.
+        </audio>
+      </div>
+      <button onclick="stop_party()" id="party_stop_button" class="btn btn-small btn-primary">Stop Party!!</button>
+      <script>
+        $("#party").hide();
+        $("#party_stop_button").hide();
+      </script>
+    </div>
+  </div>
+  </body>
+</html>
